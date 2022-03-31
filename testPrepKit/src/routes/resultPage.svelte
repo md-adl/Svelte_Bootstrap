@@ -1,5 +1,13 @@
 <script>
 	// @ts-nocheck
+	/**
+	 *	fileName  		: Result.svelte
+	 *	Description 	: After the giving the test you can see the result percentage and attempted and attempted
+	 *	Author   		: Mohammad Adil
+	 *	version 		: 1.0
+	 *	created 		: 31-march-2022;
+	 *	updated by 		: Mohammad Adil   mohammad.adil@ucertify.com
+	 */
 
 	import Header from '../components/Header.svelte';
 	import { chooseAns, userChecked, post, reviewFooter } from '../store';
@@ -126,22 +134,21 @@
 						</td>
 						<td>
 							<div class="d-flex justify-content-between text-center ">
-                                {#each optionArray as optionData, j}
+								{#each optionArray as optionData, j}
 									<div
-                                    class="{`${
-										actualCorrectArr[i] == j ? 'bg-success' : ''
-									}`}   border d-flex justify-conten-center text-center ms-2  text-dark rounded"
-									class:selected={actualCorrectArr[i] != answerChoosebyUser[i] &&
-									answerChoosebyUser[i] == j
-										? true
-										: false}
-									style="width: 24px; height:24px"
-								>
+										class="{`${
+											actualCorrectArr[i] == j ? 'bg-success' : ''
+										}`}   border d-flex justify-conten-center text-center ms-2  text-dark rounded"
+										class:selected={actualCorrectArr[i] != answerChoosebyUser[i] &&
+										answerChoosebyUser[i] == j
+											? true
+											: false}
+										style="width: 24px; height:24px"
+									>
 										<p>{optionData}</p>
 									</div>
 								{/each}
-                            </div>
-                            
+							</div>
 						</td>
 
 						<td>
@@ -166,13 +173,14 @@
 		</table>
 		<div class="d-flex justify-content-center">
 			<a href="/">
-			<button class="btn btn-primary">Restart</button>
-		</a>
+				<button class="btn btn-primary">Restart</button>
+			</a>
 		</div>
 	</div>
 </main>
+
 <style>
-    .selected{
-        background-color: red;
-    }
+	.selected {
+		background-color: red;
+	}
 </style>
