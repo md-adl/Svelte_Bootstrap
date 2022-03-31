@@ -98,7 +98,7 @@
 			</div>
 
 			<div>
-				<h6 class="totalResult">Total Result:</h6>
+				<h5 class="totalResult">Total Result:</h5>
 				<p>{score}%</p>
 			</div>
 		</div>
