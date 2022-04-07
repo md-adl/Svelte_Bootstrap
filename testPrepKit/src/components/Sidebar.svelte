@@ -5,7 +5,7 @@
 	 *	Description 	: This component has if you click the list button you can see attempted and Unattempted question
 	 *	Author   		: Mohammad Adil
 	 *	version 		: 1.0
-	 *	created 		: 31-march-2022;
+	 *	created 		: 7-april-2022;
 	 *	updated by 		: Mohammad Adil   mohammad.adil@ucertify.com
 	 */
 
@@ -37,20 +37,24 @@
 			style="width:200px;top:58px"
 		>
 			<div class="mb-0">
-				<p class="border m-0 p-1 list-group-item list-group-item-action ">attempted :{data.length}</p>
-				<p class="border mt-1 p-1 list-group-item list-group-item-action ">unattempted : {11 - data.length}</p>
+				<p class="border m-0 p-1 list-group-item list-group-item-action ">
+					attempted :{data.length}
+				</p>
+				<p class="border mt-1 p-1 list-group-item list-group-item-action ">
+					unattempted : {11 - data.length}
+				</p>
 			</div>
-				{#each postData as dataItem, i (dataItem)}
-					<span
-						id="list{i}"
-						class=" col-12 text-truncate  p-1 border list-group-item list-group-item-action "
-						on:click={setCorrectValue(i)}
-                        style="cursor: pointer;"
-					>
-						Q{i + 1}
-						{JSON.parse(dataItem.content_text).question}
-					</span>
-				{/each}
+			{#each postData as dataItem, i (dataItem)}
+				<span
+					id="list{i}"
+					class=" col-12 text-truncate  p-1 border list-group-item list-group-item-action "
+					on:click={setCorrectValue(i)}
+					style="cursor: pointer;"
+				>
+					Q{i + 1}
+					{JSON.parse(dataItem.content_text).question}
+				</span>
+			{/each}
 		</div>
 	</nav>
 {/if}

@@ -5,7 +5,7 @@
 	 *	Description 	:  this page have question ans answer you can give the test also showing the list of attemeted and Unattempted question
 	 *	Author   		: Mohammad Adil
 	 *	version 		: 1.0
-	 *	created 		: 31-march-2022;
+	 *	created 		: 7-april-2022;
 	 *	updated by 		: Mohammad Adil   mohammad.adil@ucertify.com
 	 */
 
@@ -116,4 +116,3 @@ p-2 text-white rounded"
 		<Confirm on:offBox={offBox} />
 	</div>
 {/if}
-
