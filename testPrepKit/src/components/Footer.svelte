@@ -22,22 +22,22 @@
 		});
 	});
 
-	export let currentQue;
+	export let current_ques;
 	const dispatch = createEventDispatcher();
 
 	function nextQuest() {
-		dispatch('updateCurrent');
+		dispatch('update_current');
 	}
 
 	function prevQuest() {
-		dispatch('updatePrev');
+		dispatch('update_prev');
 	}
 	const changeIndex = (event) => {
 		console.log('events are', event.detail);
-		dispatch('changeCorrectQues', event.detail);
+		dispatch('changeCurrent_ques', event.detail);
 	};
 	const confirmBox = () => {
-		dispatch('confirmBoxs');
+		dispatch('model');
 	};
 </script>
 
@@ -48,7 +48,7 @@
 				<!-- svelte-ignore a11y-accesskey -->
 				<div class="d-flex flex-row-reverse bg-highlight justify-content-evenly p-0">
 					<button class="btn btn-primary" on:click={confirmBox} accesskey="t">End Test</button>
-					{#if currentQue == 10}
+					{#if current_ques == 10}
 						<!-- svelte-ignore a11y-accesskey -->
 						<button id="nxt" class="btn btn-primary" on:click={nextQuest} disabled>Next</button>
 					{:else}
@@ -57,9 +57,9 @@
 						>
 					{/if}
 
-					<span class="align-self-center">{currentQue + 1} of 11</span>
+					<span class="align-self-center">{current_ques + 1} of 11</span>
 
-					{#if currentQue == 0}
+					{#if current_ques == 0}
 						<!-- svelte-ignore a11y-accesskey -->
 						<button id="prev" class="btn btn-primary" on:click={prevQuest} disabled>Previous</button
 						>

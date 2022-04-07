@@ -10,7 +10,7 @@
 	 */
 
 	import Header from '../components/Header.svelte';
-	import { chooseAns, userChecked, post, reviewFooter } from '../store';
+	import { chooseAns, user_cheked, post, reviewFooter } from '../store';
 	import { onMount } from 'svelte';
 
 	let incorrectAns = 0;
@@ -46,11 +46,11 @@
 	}
 
 	onMount(() => {
-		$userChecked.sort(function (a, b) {
-			return a.questionNumber - b.questionNumber;
+		$user_cheked.sort(function (a, b) {
+			return a.question_nmbr - b.question_nmbr;
 		});
-		for (let i = 0; i < $userChecked.length; i++) {
-			if ($userChecked[i].userOptionCorrect == '1') {
+		for (let i = 0; i < $user_cheked.length; i++) {
+			if ($user_cheked[i].userOption_ckt == '1') {
 				correctAns = correctAns + 1;
 				console.log('hiii', correctAns);
 			} else {
@@ -63,15 +63,15 @@
 	let unselected = [];
 	let matched = [];
 	for (let i = 0; i < $post.length; i++) {
-		for (j = 0; j < $userChecked.length; j++) {
-			if (i + 1 == $userChecked[j].questionNumber) {
+		for (j = 0; j < $user_cheked.length; j++) {
+			if (i + 1 == $user_cheked[j].question_nmbr) {
 				matched[i] = i + 1;
 				break;
 			} else {
 				matched[i] = 0;
 			}
 		}
-		if (j >= $userChecked.length) {
+		if (j >= $user_cheked.length) {
 			unselected[i] = i + 1;
 			// console.log('un', unselected);
 		}
@@ -152,9 +152,9 @@
 						</td>
 
 						<td>
-							{#each $userChecked as selectQue}
-								{#if i + 1 == selectQue.questionNumber}
-									{#if selectQue.userOptionCorrect == 0}
+							{#each $user_cheked as selectQue}
+								{#if i + 1 == selectQue.question_nmbr}
+									{#if selectQue.userOption_ckt == 0}
 										Incorrect
 									{:else}
 										Correct
