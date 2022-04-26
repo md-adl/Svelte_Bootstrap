@@ -29,7 +29,6 @@
 		const responce = await fetch(`data/jsonFile.json`);
 		posts = await responce.json();
 		post.set(posts);
-		console.log(posts);
 	});
 
 	const Incre = () => {
@@ -40,10 +39,7 @@
 		current_ques = current_ques - 1;
 	};
 	const question_attempt = (i, index) => {
-		console.log(index);
 		let id = JSON.parse(posts[i].content_text).answers[index].id;
-		console.log(id);
-
 		let userOption_ckt = JSON.parse(posts[i].content_text).answers[index].is_correct;
 		let userOption_ckd = index;
 		let userCheck_ques = JSON.parse(posts[i].content_text).question;
@@ -72,10 +68,11 @@
 
 <main>
 	<Header />
-	<div class="w-50 margin-auto position-fixed " style="right:320px">
+	<div class="w-50 margin-auto position-fixed container-fluid " style="right:320px">
 		{#each posts as dataItem, i (dataItem)}
+		
 			{#if current_ques == i}
-				<span class="show-ques mb-5 h6">{i + 1}. {JSON.parse(dataItem.content_text).question}</span>
+				<span class="show-ques">{i + 1}. {JSON.parse(dataItem.content_text).question}</span>
 
 				{#each JSON.parse(dataItem.content_text).answers as ans, index (ans)}
 					<div class="d-flex justify-content-center flex-column">
@@ -110,7 +107,6 @@ p-2 text-white rounded"
 		on:model={model}
 	/>
 </div>
-
 {#if value}
 	<div class="position-relative top-50  translateX(-50%)  translateY(-50%)">
 		<Confirm on:offBox={offBox} />

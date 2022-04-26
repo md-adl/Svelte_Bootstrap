@@ -1,3 +1,4 @@
+
 <script>
 	// @ts-nocheck
 	/**
@@ -8,7 +9,6 @@
 	 *	created 		: 7-april-2022;
 	 *	updated by 		: Mohammad Adil   mohammad.adil@ucertify.com
 	 */
-
 	import { fly } from 'svelte/transition';
 	import { post } from '../store';
 	import { chooseAns } from '../store';
@@ -26,28 +26,27 @@
 	const setCorrectValue = (i) => {
 		dispatch('changeIndex', i);
 	};
-
 	$: data = $chooseAns.filter(Boolean);
 </script>
 
 {#if show}
 	<nav transition:fly={{ x: -550, opacity: 1 }} class="">
 		<div
-			class="list position-fixed  start-0 mh-100 bg-white text-dark border d-flex flex-column p-2"
+			class="list position-fixed  start-0 mh-100 bg-white text-dark border border-primary  h-100 d-flex flex-column p-2 m"
 			style="width:200px;top:58px"
 		>
 			<div class="mb-0">
-				<p class="border m-0 p-1 list-group-item list-group-item-action ">
+				<p class="ps-2">
 					attempted :{data.length}
 				</p>
-				<p class="border mt-1 p-1 list-group-item list-group-item-action ">
+				<p class="ps-2">
 					unattempted : {11 - data.length}
 				</p>
 			</div>
 			{#each postData as dataItem, i (dataItem)}
 				<span
 					id="list{i}"
-					class=" col-12 text-truncate  p-1 border list-group-item list-group-item-action "
+					class=" col-12 text-truncate p-2   "
 					on:click={setCorrectValue(i)}
 					style="cursor: pointer;"
 				>

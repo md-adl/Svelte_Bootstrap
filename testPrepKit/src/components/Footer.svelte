@@ -43,10 +43,10 @@
 
 <main>
 	<footer>
-		<div>
+		<div class="container-fluid">
 			{#if !review}
 				<!-- svelte-ignore a11y-accesskey -->
-				<div class="d-flex flex-row-reverse bg-highlight justify-content-evenly p-0">
+				<div class="d-flex flex-row-reverse bg-highlight justify-content-between p-0 container-fluid">
 					<button class="btn btn-primary" on:click={confirmBox} accesskey="t">End Test</button>
 					{#if current_ques == 10}
 						<!-- svelte-ignore a11y-accesskey -->
@@ -83,37 +83,39 @@
 
 				<Sidebar bind:show={sidebar_show} on:changeIndex={changeIndex} />
 			{:else}
-				<div class="d-flex justify-content-around">
-					{#if qustionIdNo == 0}
-						<button id="prev" class="btn btn-primary" on:click={prevQuest} disabled>Previous</button
-						>
-					{:else}
-						<!-- svelte-ignore a11y-accesskey -->
-						<button id="prev" class="btn btn-primary" on:click={prevQuest} accesskey="p"
-							>Previous</button
-						>
-					{/if}
-
-					<div class="align-self-center">
-						<h6>{qustionIdNo + 1}of 11</h6>
-					</div>
-					{#if qustionIdNo == 10}
-						<button id="nxt" class="btn btn-primary" on:click={nextQuest} disabled>Next</button>
-					{:else}
-						<!-- svelte-ignore a11y-accesskey -->
-						<button id="nxt" class="btn btn-primary" on:click={nextQuest} accesskey="n">Next</button
-						>
-					{/if}
+				<div class="d-flex  justify-content-between p-2 container-fluid">
 					<!-- svelte-ignore a11y-accesskey -->
 					<button
-						class="btn btn-primary"
+						class="btn btn-primary ms-1 "
 						on:click={() => (sidebar_show = !sidebar_show)}
 						accesskey="l">List</button
 					>
-
+					{#if qustionIdNo == 0}
+						<button id="prev" class="btn btn-primary ms-1  " on:click={prevQuest} disabled>Previous</button
+						>
+					{:else}
+						<!-- svelte-ignore a11y-accesskey -->
+						<button id="prev" class="btn btn-primary ms-1" on:click={prevQuest} accesskey="p"
+							>Previous</button
+						>
+					{/if}
+					<div class="align-self-center ms-1">
+						<h6>{qustionIdNo + 1}of 11</h6>
+					</div>
+					{#if qustionIdNo == 10}
+						<button id="nxt" class="btn btn-primary ms-1" on:click={nextQuest} disabled>Next</button>
+					{:else}
+						<!-- svelte-ignore a11y-accesskey -->
+						<button id="nxt" class="btn btn-primary ms-1" on:click={nextQuest} accesskey="n">Next</button
+						>
+					{/if}
+					<!-- svelte-ignore a11y-accesskey -->
 					<Sidebar bind:show={sidebar_show} on:changeIndex={changeIndex} />
 					<a href="/">
-						<button class="btn btn-primary">Restart</button>
+						<button class="btn btn-primary ms-1">Restart</button>
+					</a>
+					<a href="/resultPage">
+						<button class="btn btn-primary ms-1">Result</button>
 					</a>
 				</div>
 			{/if}

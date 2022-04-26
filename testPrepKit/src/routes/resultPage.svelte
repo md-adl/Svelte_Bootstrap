@@ -52,7 +52,6 @@
 		for (let i = 0; i < $user_cheked.length; i++) {
 			if ($user_cheked[i].userOption_ckt == '1') {
 				correctAns = correctAns + 1;
-				console.log('hiii', correctAns);
 			} else {
 				incorrectAns += 1;
 			}
@@ -73,7 +72,6 @@
 		}
 		if (j >= $user_cheked.length) {
 			unselected[i] = i + 1;
-			// console.log('un', unselected);
 		}
 	}
 	$: data = $chooseAns.filter(Boolean);
@@ -84,29 +82,29 @@
 
 <Header />
 <main>
-	<div class="container">
-		<div class="header border border-dark d-flex justify-content-between text-center">
+	<div class="container-fluid">
+		<div class="header border border-dark d-flex justify-content-between text-center container-fluid p-2">
 			<div>
-				<h6>Correct</h6>
+				<h6 class=" bg-success rounded text-white ">Correct</h6>
 				<p>{correctAns}</p>
 			</div>
 			<div>
-				<h6>Incorrect</h6>
+				<h6 class="bg-danger rounded text-white ">Incorrect</h6>
 				<p>{incorrectAns}</p>
 			</div>
 
 			<div>
-				<h6>attempted</h6>
+				<h6 class="bg-secondary rounded text-white ">attempted</h6>
 				<p>{data.length}</p>
 			</div>
 
 			<div>
-				<h6>unattempted</h6>
+				<h6 class="bg-primary rounded text-white ">unattempted</h6>
 				<p>{11 - data.length}</p>
 			</div>
 
 			<div>
-				<h5 class="totalResult">Total Result:</h5>
+				<h6 class="totalResult bg-info rounded">Total Result</h6>
 				<p>{score}%</p>
 			</div>
 		</div>
@@ -133,12 +131,12 @@
 							</a>
 						</td>
 						<td>
-							<div class="d-flex justify-content-between text-center ">
+							<div class="d-flex justify-content-between text-center  ">
 								{#each optionArray as optionData, j}
 									<div
 										class="{`${
 											actualCorrectArr[i] == j ? 'bg-success' : ''
-										}`}   border d-flex justify-conten-center text-center ms-2  text-dark rounded"
+										}`}   border d-flex justify-conten-center text-center ms-2 ps-1  text-dark rounded"
 										class:selected={actualCorrectArr[i] != answerChoosebyUser[i] &&
 										answerChoosebyUser[i] == j
 											? true

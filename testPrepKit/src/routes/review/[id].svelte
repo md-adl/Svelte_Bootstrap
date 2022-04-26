@@ -86,7 +86,7 @@
 					</div>
 					{#each JSON.parse(data.content_text).answers as answersCorrect}
 						{#if answersCorrect.is_correct == 1}
-							<div class="badge bg-primary text-wrap ">
+							<div class=" w-100  bg-info text-white ">
 								<p>{@html explanationAnswer}</p>
 							</div>
 						{/if}

@@ -1,5 +1,16 @@
 
+
+
 <script>
+	// @ts-nocheck
+/**
+ *	fileName  		: timer.svelte
+ *	Description 	: This component show the time of test how much you have time to given the test
+ *	Author   		: Mohammad Adil
+ *	version 		: 1.0
+ *	created 		: 25-4-2022;
+ *	updated by 		: Mohammad Adil   mohammad.adil@ucertify.com
+ */
 	import { tweened } from 'svelte/motion';
 	let orig = 2 * 60;
 	let timer = tweened(orig);
@@ -20,9 +31,7 @@
 	</div>
 {:else}
 	<span>{minut}:</span>
-	<span>{sec}</span>
-		
-	
+	<span>{sec}</span>		
 {/if}
 
 
