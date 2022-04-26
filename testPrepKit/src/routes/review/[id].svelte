@@ -86,7 +86,7 @@
 					</div>
 					{#each JSON.parse(data.content_text).answers as answersCorrect}
 						{#if answersCorrect.is_correct == 1}
-							<div class=" w-100  bg-info text-white ">
+							<div class=" w-100    ">
 								<p>{@html explanationAnswer}</p>
 							</div>
 						{/if}
